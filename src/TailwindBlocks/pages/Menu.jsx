@@ -240,7 +240,7 @@ const IceCreamCard = ({ _id, productName, image, description, price }) => {
   };
 
   // Construct full image URL
-  const imageUrl = `http://localhost:4000/uploads/${image}`;
+  const imageUrl = `https://atozicecreamdashboard.onrender.com/uploads/${image}`;
 
   return (
     <div className={cardClasses}>
