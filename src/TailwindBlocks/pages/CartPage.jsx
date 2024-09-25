@@ -127,7 +127,7 @@ const CartPage = () => {
           {cart.map((item) => (
             <div key={item.name} className="flex items-center justify-between mb-4 p-4 bg-white shadow rounded">
               <img 
-                src={`http://localhost:4000/uploads/${item.image}`} 
+                src={`https://ato-z-ice-creams.vercel.app/uploads/${item.image}`} 
                 alt={item.name} 
                 className="w-20 h-20 object-cover rounded mr-4"
                 onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'; }} // Fallback image
