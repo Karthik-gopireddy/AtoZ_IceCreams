@@ -6,6 +6,8 @@ import Orders from './TailwindBlocks/pages/Orders'
 import NavBarSection from './TailwindBlocks/components/NavBarSection'
 import IceCreamMenu from './TailwindBlocks/pages/Menu'
 import { CartProvider } from './TailwindBlocks/pages/CartContext'
+import OrdersPage from './TailwindBlocks/pages/Orders'
+import SuccessPage from './TailwindBlocks/pages/successmessage'
 
 const App = () => {
   return (
@@ -16,8 +18,9 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/cart" element={<CartPage />} />
-            <Route exact path="/orders" element={<Orders />} />
+            <Route exact path="/orders" element={<OrdersPage />} />
             <Route exact path="/menu" element={<IceCreamMenu />} />
+            <Route exact path="/success" element={<SuccessPage />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>

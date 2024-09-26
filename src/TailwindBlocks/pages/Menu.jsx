@@ -2,6 +2,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { CartContext } from './CartContext';  // Import CartContext
 import Swal from 'sweetalert2';  // Import SweetAlert2
+import url from "../../url"
 
 // Styling classes
 const cardClasses = 'bg-card p-4 rounded-lg shadow-lg w-[300px]';
@@ -24,7 +25,7 @@ const IceCreamCard = ({ _id, productName, image, description, price }) => {
   };
 
   // Construct full image URL
-  const imageUrl = `https://atozicecreamdashboard.onrender.com/uploads/${image}`;
+  const imageUrl = `${url}/uploads/${image}`;
 
   return (
     <div className={cardClasses}>
@@ -52,7 +53,7 @@ const IceCreamMenu = () => {
   useEffect(() => {
     const fetchIceCreamData = async () => {
       try {
-        const response = await fetch('https://atozicecreamdashboard.onrender.com/product/get-products');
+        const response = await fetch(`${url}/product/get-products`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

@@ -1,10 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { CartContext } from './CartContext';
 import emptyCart from "../../images/emptyCart.jpg";
+import {useNavigate} from "react-router-dom"
+import url from "../../url"
 
 const CartPage = () => {
   const { cart, updateQuantity, removeFromCart } = useContext(CartContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate()
 
   // Form field states
   const [fullName, setFullName] = useState("");
@@ -37,9 +40,47 @@ const CartPage = () => {
   const paymentsuccess = (isSuccess) => {
     if (isSuccess) {
       alert("Your Order is successfully placed");
-      // Handle further actions here, like clearing the cart or redirecting
+      navigate("/success");
+  
+      // Save order details in local storage
+      const orderDetails = {
+        fullName,
+        email,
+        mobile,
+        address,
+        city,
+        state,
+        pinCode,
+        products: cart.map(item => ({
+          productId: item._id,
+          productName: item.name,
+          image: item.image, // Ensure the image path is correct
+          price: item.price,
+          quantity: item.quantity,
+        })),
+        totalAmount: getTotalPrice(),
+        orderId: new Date().getTime(), // Use timestamp for unique order ID
+        createdAt: new Date(), // Save the date the order was placed
+      };
+  
+      // Retrieve previous orders from local storage
+      const previousOrders = JSON.parse(localStorage.getItem("orders")) || [];
+  
+      // Ensure previousOrders is an array before pushing the new order
+      const ordersArray = Array.isArray(previousOrders) ? previousOrders : [];
+  
+      // Add the new order to the previous orders array
+      ordersArray.push(orderDetails);
+  
+      // Save updated orders back to local storage
+      localStorage.setItem("orders", JSON.stringify(ordersArray));
+  
+      navigate("/success");
+      // You can also clear the cart here if needed
     }
   };
+  
+  
 
   const handleAddressSubmit = async (e) => {
     e.preventDefault();
@@ -78,7 +119,7 @@ const CartPage = () => {
           };
 
           try {
-            const response = await fetch("https://atozicecreamdashboard.onrender.com/orders/create-order", {
+            const response = await fetch(`${url}/orders/create-order`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -127,7 +168,7 @@ const CartPage = () => {
           {cart.map((item) => (
             <div key={item.name} className="flex items-center justify-between mb-4 p-4 bg-white shadow rounded">
               <img 
-                src={`https://atozicecreamdashboard.onrender.com/uploads/${item.image}`} 
+                src={`${url}/uploads/${item.image}`} 
                 alt={item.name} 
                 className="w-20 h-20 object-cover rounded mr-4"
                 onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'; }} // Fallback image

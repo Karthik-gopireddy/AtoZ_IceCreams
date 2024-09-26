@@ -11,6 +11,7 @@ import TestimonialSection from '../components/TestimonialSection'
 import ContactSection from '../components/ContactSection'
 import FooterSection from '../components/FooterSection'
 
+
 const LandingPage = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const LandingPage = () => {
         <TestimonialSection />
         <ContactSection />
         <FooterSection />
+       
     </div>
   )
 }

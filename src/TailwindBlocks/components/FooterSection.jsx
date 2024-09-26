@@ -91,6 +91,8 @@ const FooterSection = () => {
             <p className="text-gray-500 text-sm text-center sm:text-left">© 2024 AtoZ Ice-Creams —
               <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" className="text-gray-600 ml-1" target="_blank">@AtoZ</a>
             </p>
+            <p className="text-gray-500 text-sm text-center sm:text-left ml-[200px]">Developed by @karthikgopireddy
+            </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
               <a className="text-gray-500">
                 <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">

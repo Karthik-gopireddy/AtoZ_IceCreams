@@ -13,7 +13,7 @@ const NavBarSection = () => {
             <span className="ml-3 text-xl font-bold text-[#000000]">AtoZ</span>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link to="/">
+            <Link to="/">
               <span className="mr-5 hover:text-white font-bold text-[#000000]">Home</span>
             </Link>
             <Link to="/menu">
@@ -22,9 +22,10 @@ const NavBarSection = () => {
             <Link to="/cart">
               <span className="mr-5 hover:text-white font-bold text-[#000000]">Cart</span>
             </Link>
-            {/* <Link to="/orders">
+            <Link to="/orders">
               <span className="mr-5 hover:text-white font-bold text-[#000000]">Orders</span>
             </Link>
+            {/*
             <span className="mr-5 hover:text-white font-bold text-[#000000]">Logout</span> */}
           </nav>
         </div>
