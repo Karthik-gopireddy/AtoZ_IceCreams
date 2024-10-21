@@ -18,7 +18,7 @@ const SuccessPage = () => {
           If you have any queries, please contact us at: 
         </p>
         <p className="text-xl font-semibold text-blue-600 mb-8">
-          +91-12345-67890
+          +91 9110317849
         </p>
         <button
           onClick={handleGoBack}

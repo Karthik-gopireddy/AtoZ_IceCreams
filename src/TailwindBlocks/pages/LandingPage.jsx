@@ -18,11 +18,11 @@ const LandingPage = () => {
         {/* <NavBarSection /> */}
         <HeroSection />
         <ContentSection />
-        <GallerySection />
         <HoverSection />
+        <GallerySection />
         <FeatureSection />
         {/* <PricingSection /> */}
-        <TeamSection />
+        {/* <TeamSection /> */}
         <TestimonialSection />
         <ContactSection />
         <FooterSection />

@@ -37,8 +37,8 @@ const IceCreamCard = ({ _id, productName, image, description, price }) => {
       />
       <h2 className="text-lg font-bold mb-2">{productName}</h2>
       <p className="text-sm text-zinc-500 mb-4">{description}</p>
-      <span className="text-primary font-bold">${price.toFixed(2)}</span>
-      <button onClick={handleAddToCart} className={buttonClasses + ' bg-blue-500 text-[#ffffff] ml-[100px]'}>
+      <span className="text-primary font-bold">Rs: {price.toFixed(2)} /-</span>
+      <button onClick={handleAddToCart} className={buttonClasses + ' bg-blue-500 text-[#ffffff] ml-[100px] hover:text-black hover:bg-yellow-300'}>
         Add to Cart
       </button>
     </div>
@@ -115,7 +115,7 @@ const IceCreamMenu = () => {
 
   return (
     <div className="bg-background text-primary-foreground min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-bold mb-8">Our Delicious Ice Cream Menu</h1>
+      <h1 className="text-3xl font-bold mt-4 mb-8">Our Delicious Ice Cream Menu</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {iceCreamData.map((iceCream, index) => (
           <IceCreamCard key={index} {...iceCream} />

@@ -175,7 +175,7 @@ const CartPage = () => {
               />
               <div className="flex-1">
                 <h2 className="font-bold">{item.name}</h2>
-                <p className="text-sm">${item.price.toFixed(2)}</p>
+                <p className="text-sm">Rs: {item.price.toFixed(2)} /-</p>
                 <div className="flex items-center">
                   <button
                     onClick={() => updateQuantity(item.name, -1)}
@@ -192,7 +192,7 @@ const CartPage = () => {
                   </button>
                 </div>
               </div>
-              <span className="font-bold">${(item.price * item.quantity).toFixed(2)}</span>
+              <span className="font-bold">Rs: {(item.price * item.quantity).toFixed(2)} /-</span>
               <button
                 onClick={() => removeFromCart(item.name)}
                 className="ml-4 bg-red-500 text-white px-2 py-1 rounded"
@@ -201,7 +201,7 @@ const CartPage = () => {
               </button>
             </div>
           ))}
-          <div className="text-lg font-bold mt-4">Total: ${getTotalPrice()}</div>
+          <div className="text-lg font-bold mt-4">Total: Rs: {getTotalPrice()} /-</div>
           <button
             onClick={handlePlaceOrder}
             className="mt-6 bg-blue-500 text-white px-4 py-2 rounded"

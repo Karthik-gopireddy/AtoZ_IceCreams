@@ -67,6 +67,7 @@
 
 // export default OrdersPage;
 import { useState, useEffect } from "react";
+import {Link} from "react-router-dom"
 import url from "../../url"
 
 const OrdersPage = () => {
@@ -114,22 +115,22 @@ const OrdersPage = () => {
                 <h3 className="text-lg font-bold mb-2">Ordered Items</h3>
                 {order.products.map((item, idx) => (
                   <div key={idx} className="flex items-center justify-between mb-2">
-                    <img 
-                      src={`${baseURL}${item.image}`} 
-                      alt={item.productName} 
+                    <img
+                      src={`${baseURL}${item.image}`}
+                      alt={item.productName}
                       className="w-20 h-20 object-cover rounded mr-4"
                       onError={(e) => { e.target.onerror = null; e.target.src = 'https://via.placeholder.com/150'; }} // Fallback image
                     />
                     <div className="flex-1">
                       <h2 className="font-bold">{item.productName}</h2>
-                      <p className="text-sm">Price: ${item.price.toFixed(2)}</p>
+                      <p className="text-sm">Price: Rs: {item.price.toFixed(2)} /-</p>
                       <p className="text-sm">Quantity: {item.quantity}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="text-lg font-bold mt-4">Total: ${order.totalAmount}</div>
-              
+              <div className="text-lg font-bold mt-4">Total: Rs: {order.totalAmount} /-</div>
+
               {/* Delete button */}
               <button
                 onClick={() => handleDeleteOrder(index)}
@@ -137,6 +138,14 @@ const OrdersPage = () => {
               >
                 Delete Order
               </button>
+              <Link to="/success">
+              <button
+                onClick={() => handleDeleteOrder(index)}
+                className="mt-4 ml-2 bg-amber-300 text-black px-4 py-2 rounded hover:bg-amber-600 transition"
+              >
+                Contact Us
+              </button>
+              </Link>
             </div>
           ))}
         </div>
